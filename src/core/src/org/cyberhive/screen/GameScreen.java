@@ -28,7 +28,9 @@ public class GameScreen implements Screen {
         camera.setToOrtho(false, CyberHive.VIRTUAL_WIDTH, CyberHive.VIRTUAL_HEIGHT);
 
         hexture = new Texture(Gdx.files.internal("hexagon.png"));
-        TextureRegion[][] hexes = TextureRegion.split(hexture, 103, 90);
+        int hexWidth = 103;
+        int hexHeight = 90;
+        TextureRegion[][] hexes = TextureRegion.split(hexture, hexWidth, hexHeight);
         map = new TiledMap();
         MapLayers layers = map.getLayers();
         TiledMapTile[] tiles = new TiledMapTile[4];
@@ -37,11 +39,14 @@ public class GameScreen implements Screen {
         tiles[2] = new StaticTiledMapTile(new TextureRegion(hexes[1][0]));
         tiles[3] = new StaticTiledMapTile(new TextureRegion(hexes[1][1]));
 
-        TiledMapTileLayer layer = new TiledMapTileLayer(45, 30, 103, 90);
-        for (int y = 0; y < 30; y++) {
-            for (int x = 0; x < 45; x++) {
+        int mapWidth = 45;
+        int mapHeight = 30;
+        TiledMapTileLayer layer = new TiledMapTileLayer(mapWidth, mapHeight, hexWidth, hexHeight);
+        for (int y = 0; y < mapHeight; y++) {
+            for (int x = 0; x < mapWidth; x++) {
                 TiledMapTileLayer.Cell cell = new TiledMapTileLayer.Cell();
-                cell.setTile(tiles[0]);
+                int id = (int)(Math.random() * 4);
+                cell.setTile(tiles[id]);
                 layer.setCell(x, y, cell);
             }
         }
