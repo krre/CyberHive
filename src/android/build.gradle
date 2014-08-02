@@ -12,6 +12,7 @@ android {
         }
 
         instrumentTest.setRoot('tests')
+        main.java.srcDirs += 'src/main/kotlin'
     }
 }
 
@@ -64,6 +65,22 @@ task run(type: Exec) {
 
     def adb = path + "/platform-tools/adb"
     commandLine "$adb", 'shell', 'am', 'start', '-n', 'org.cyberhive.android/org.cyberhive.android.AndroidLauncher'
+}
+buildscript {
+    ext.kotlin_version = '0.8.11'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+apply plugin: 'kotlin-android'
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
 
