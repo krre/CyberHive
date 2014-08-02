@@ -1,9 +1,8 @@
 package org.cyberhive
 
 import com.badlogic.gdx.Game
-import com.badlogic.gdx.graphics.g2d.BitmapFont
-import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import org.cyberhive.screen.GameScreen
+import com.badlogic.gdx.Gdx
 
 public class CyberHive() : Game() {
     override fun create() {
@@ -15,7 +14,11 @@ public class CyberHive() : Game() {
     }
 
     class object {
-        public val VIRTUAL_WIDTH: Int = 800
-        public val VIRTUAL_HEIGHT: Int = 480
+        val VIRTUAL_WIDTH: Float = 800f
+        val VIRTUAL_HEIGHT: Float = 480f
+
+        fun print(message: String) {
+            Gdx.app?.log("CyberHive", message)
+        }
     }
 }
