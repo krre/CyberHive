@@ -26,8 +26,8 @@ public class CyberHive() : Game() {
 
         var topBar: TopBar? = null
 
-        fun print(message: String) {
-            Gdx.app?.log("CyberHive", message)
+        fun print(message: Any) {
+            Gdx.app?.log("CyberHive", message.toString())
         }
     }
 }
