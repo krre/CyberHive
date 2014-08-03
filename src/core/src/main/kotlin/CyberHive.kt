@@ -3,6 +3,7 @@ package org.cyberhive
 import com.badlogic.gdx.Game
 import org.cyberhive.screen.GameScreen
 import com.badlogic.gdx.Gdx
+import org.cyberhive.gui.TopBar
 
 public class CyberHive() : Game() {
     override fun create() {
@@ -22,6 +23,8 @@ public class CyberHive() : Game() {
         var POPULATION = 0
         var POPULATION_DYNAMIC = 0
         var BLACKOUT = 0
+
+        var TOP_BAR: TopBar? = null
 
         fun print(message: String) {
             Gdx.app?.log("CyberHive", message)

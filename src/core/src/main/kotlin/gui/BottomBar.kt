@@ -22,7 +22,8 @@ public class BottomBar() : Stack() {
         val nextButton = TextButton("NEXT", skin)
         nextButton.addListener(object: ClickListener() {
             override fun clicked(enent: InputEvent?, x: Float, y: Float) {
-                CyberHive.print("next")
+                CyberHive.ENERGY += 1
+                CyberHive.TOP_BAR?.updateEnergy()
             }
         });
         addActor(nextButton)

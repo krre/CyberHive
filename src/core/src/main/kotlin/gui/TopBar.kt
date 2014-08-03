@@ -13,6 +13,7 @@ public class TopBar() : Stack() {
     val populationLabel: Label
     val blackoutLabel: Label
     {
+        CyberHive.TOP_BAR = this
         setSize(CyberHive.VIRTUAL_WIDTH, 40f)
         val skin = Skin(Gdx.files?.internal("uiskin.json"));
 
@@ -28,26 +29,41 @@ public class TopBar() : Stack() {
         horizontalGroup.fill()
         addActor(horizontalGroup)
 
-        energyLabel = Label("Energy: ${CyberHive.ENERGY} (${CyberHive.ENERGY_DYNAMIC})", skin)
+        energyLabel = Label("", skin)
+        updateEnergy()
         horizontalGroup.addActor(energyLabel)
 
         val splitter0 = Rectangle()
         splitter0.setSize(2f, getHeight())
         horizontalGroup.addActor(splitter0)
 
-        populationLabel = Label("Population: ${CyberHive.POPULATION} (${CyberHive.POPULATION_DYNAMIC})", skin)
+        populationLabel = Label("", skin)
+        updatePopulation()
         horizontalGroup.addActor(populationLabel)
 
         val splitter1 = Rectangle()
         splitter1.setSize(2f, getHeight())
         horizontalGroup.addActor(splitter1)
 
-        blackoutLabel = Label("Blackout: ${CyberHive.BLACKOUT}", skin)
+        blackoutLabel = Label("", skin)
+        updateBlackout()
         horizontalGroup.addActor(blackoutLabel)
 
         val splitter2 = Rectangle()
         splitter2.setSize(2f, getHeight())
         horizontalGroup.addActor(splitter2)
+    }
+
+    fun updateEnergy() {
+        energyLabel.setText("Energy: ${CyberHive.ENERGY} (${CyberHive.ENERGY_DYNAMIC})")
+    }
+
+    fun updatePopulation() {
+        populationLabel.setText("Population: ${CyberHive.POPULATION} (${CyberHive.POPULATION_DYNAMIC})")
+    }
+
+    fun updateBlackout() {
+        blackoutLabel.setText("Blackout: ${CyberHive.BLACKOUT}")
     }
 }
 
