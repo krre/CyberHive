@@ -9,13 +9,20 @@ import org.cyberhive.map.HexMap
 import com.badlogic.gdx.scenes.scene2d.Stage
 import org.cyberhive.gui.TopBar
 import org.cyberhive.gui.BottomBar
+import com.badlogic.gdx.scenes.scene2d.ui.Label
+import com.badlogic.gdx.graphics.g2d.BitmapFont
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.scenes.scene2d.Actor
+import com.badlogic.gdx.graphics.g2d.Batch
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 
 public class GameScreen(var game: CyberHive) : Screen {
     val camera = OrthographicCamera()
     val hexMap = HexMap()
     val stage = Stage()
     val topBar = TopBar();
-    val bootmBar = BottomBar();
+    val bottomBar = BottomBar();
     {
         Gdx.input?.setInputProcessor(stage)
         camera.setToOrtho(false, CyberHive.VIRTUAL_WIDTH, CyberHive.VIRTUAL_HEIGHT)
@@ -23,8 +30,8 @@ public class GameScreen(var game: CyberHive) : Screen {
         topBar.setY(CyberHive.VIRTUAL_HEIGHT - topBar.getHeight())
         stage.addActor(topBar)
 
-        bootmBar.setY(0f)
-        stage.addActor(bootmBar)
+        bottomBar.setY(0f)
+        stage.addActor(bottomBar)
     }
 
     override fun render(delta: Float) {

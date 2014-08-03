@@ -14,8 +14,14 @@ public class CyberHive() : Game() {
     }
 
     class object {
-        val VIRTUAL_WIDTH: Float = 800f
-        val VIRTUAL_HEIGHT: Float = 480f
+        val VIRTUAL_WIDTH = 800f
+        val VIRTUAL_HEIGHT = 480f
+
+        var ENERGY = 0
+        var ENERGY_DYNAMIC = 0
+        var POPULATION = 0
+        var POPULATION_DYNAMIC = 0
+        var BLACKOUT = 0
 
         fun print(message: String) {
             Gdx.app?.log("CyberHive", message)

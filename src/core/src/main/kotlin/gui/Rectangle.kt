@@ -1,19 +1,20 @@
 package org.cyberhive.gui
 
-import com.badlogic.gdx.scenes.scene2d.Actor
 import com.badlogic.gdx.graphics.g2d.Batch
 import org.cyberhive.CyberHive
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.scenes.scene2d.ui.Table
+import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup
+import com.badlogic.gdx.scenes.scene2d.Actor
 
-open class Bar() : Actor() {
+open class Rectangle() : Actor() {
+    var fillColor = Color.WHITE
+    set(value) { renderer.setColor(value) }
     private val renderer = ShapeRenderer();
-    private val HEIGHT = 40f
     {
-        setWidth(CyberHive.VIRTUAL_WIDTH)
-        setHeight(HEIGHT)
-        renderer.setColor(Color.TEAL)
+        setSize(100f, 100f)
     }
 
     override fun draw(batch: Batch?, parentAlpha: Float) {
@@ -28,7 +29,6 @@ open class Bar() : Actor() {
         renderer.end()
 
         batch?.begin()
-
     }
 }
 
