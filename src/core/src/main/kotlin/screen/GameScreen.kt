@@ -9,23 +9,22 @@ import org.cyberhive.map.HexMap
 import com.badlogic.gdx.scenes.scene2d.Stage
 import org.cyberhive.gui.TopBar
 import org.cyberhive.gui.BottomBar
-import com.badlogic.gdx.scenes.scene2d.ui.Label
-import com.badlogic.gdx.graphics.g2d.BitmapFont
-import com.badlogic.gdx.graphics.Color
-import com.badlogic.gdx.scenes.scene2d.Actor
-import com.badlogic.gdx.graphics.g2d.Batch
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer
+import org.cyberhive.utils.OrthoCamController
+import com.badlogic.gdx.InputMultiplexer
 
 public class GameScreen(var game: CyberHive) : Screen {
     val camera = OrthographicCamera()
+    var cameraController: OrthoCamController
     val hexMap = HexMap()
     val stage = Stage()
-    val topBar = TopBar();
+    val topBar = TopBar()
     val bottomBar = BottomBar();
     {
-        Gdx.input?.setInputProcessor(stage)
         camera.setToOrtho(false, CyberHive.virtualWidth, CyberHive.virtualHeight)
+        cameraController = OrthoCamController(camera)
+
+        val inputMultiplexer = InputMultiplexer(stage, cameraController)
+        Gdx.input?.setInputProcessor(inputMultiplexer)
 
         topBar.setY(CyberHive.virtualHeight - topBar.getHeight())
         stage.addActor(topBar)
@@ -33,6 +32,7 @@ public class GameScreen(var game: CyberHive) : Screen {
         bottomBar.setY(0f)
         stage.addActor(bottomBar)
     }
+
 
     override fun render(delta: Float) {
         Gdx.gl?.glClearColor(1f, 1f, 1f, 1f)
