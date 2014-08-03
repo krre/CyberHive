@@ -13,8 +13,8 @@ public class TopBar() : Stack() {
     val populationLabel: Label
     val blackoutLabel: Label
     {
-        CyberHive.TOP_BAR = this
-        setSize(CyberHive.VIRTUAL_WIDTH, 40f)
+        CyberHive.topBar = this
+        setSize(CyberHive.virtualWidth, 40f)
         val skin = Skin(Gdx.files?.internal("uiskin.json"));
 
         val colorBar = Rectangle()
@@ -55,15 +55,15 @@ public class TopBar() : Stack() {
     }
 
     fun updateEnergy() {
-        energyLabel.setText("Energy: ${CyberHive.ENERGY} (${CyberHive.ENERGY_DYNAMIC})")
+        energyLabel.setText("Energy: ${CyberHive.energy} (${CyberHive.energyDynamic})")
     }
 
     fun updatePopulation() {
-        populationLabel.setText("Population: ${CyberHive.POPULATION} (${CyberHive.POPULATION_DYNAMIC})")
+        populationLabel.setText("Population: ${CyberHive.population} (${CyberHive.populationDynamic})")
     }
 
     fun updateBlackout() {
-        blackoutLabel.setText("Blackout: ${CyberHive.BLACKOUT}")
+        blackoutLabel.setText("Blackout: ${CyberHive.blackout}")
     }
 }
 

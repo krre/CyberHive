@@ -25,9 +25,9 @@ public class GameScreen(var game: CyberHive) : Screen {
     val bottomBar = BottomBar();
     {
         Gdx.input?.setInputProcessor(stage)
-        camera.setToOrtho(false, CyberHive.VIRTUAL_WIDTH, CyberHive.VIRTUAL_HEIGHT)
+        camera.setToOrtho(false, CyberHive.virtualWidth, CyberHive.virtualHeight)
 
-        topBar.setY(CyberHive.VIRTUAL_HEIGHT - topBar.getHeight())
+        topBar.setY(CyberHive.virtualHeight - topBar.getHeight())
         stage.addActor(topBar)
 
         bottomBar.setY(0f)

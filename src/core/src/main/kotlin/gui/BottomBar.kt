@@ -11,7 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent
 
 public class BottomBar() : Stack() {
     {
-        setSize(CyberHive.VIRTUAL_WIDTH, 40f)
+        setSize(CyberHive.virtualWidth, 40f)
 
         val colorBar = Rectangle()
         colorBar.setSize(getWidth(), getHeight())
@@ -22,8 +22,8 @@ public class BottomBar() : Stack() {
         val nextButton = TextButton("NEXT", skin)
         nextButton.addListener(object: ClickListener() {
             override fun clicked(enent: InputEvent?, x: Float, y: Float) {
-                CyberHive.ENERGY += 1
-                CyberHive.TOP_BAR?.updateEnergy()
+                CyberHive.energy += 1
+                CyberHive.topBar?.updateEnergy()
             }
         });
         addActor(nextButton)
