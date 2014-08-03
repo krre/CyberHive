@@ -1,21 +1,20 @@
 package org.cyberhive.gui
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label
-import com.badlogic.gdx.graphics.g2d.BitmapFont
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.g2d.Batch
 import org.cyberhive.CyberHive
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup
 import com.badlogic.gdx.scenes.scene2d.ui.Stack
+import com.badlogic.gdx.scenes.scene2d.ui.Skin
 
 public class TopBar() : Stack() {
     val energyLabel: Label
     val populationLabel: Label
     val blackoutLabel: Label
-    val labelStyle =  Label.LabelStyle(BitmapFont(), Color.WHITE);
     {
         setSize(CyberHive.VIRTUAL_WIDTH, 40f)
+        val skin = Skin(Gdx.files?.internal("uiskin.json"));
 
         val colorBar = Rectangle()
         colorBar.setSize(getWidth(), getHeight())
@@ -29,21 +28,21 @@ public class TopBar() : Stack() {
         horizontalGroup.fill()
         addActor(horizontalGroup)
 
-        energyLabel = Label("Energy: ${CyberHive.ENERGY} (${CyberHive.ENERGY_DYNAMIC})", labelStyle)
+        energyLabel = Label("Energy: ${CyberHive.ENERGY} (${CyberHive.ENERGY_DYNAMIC})", skin)
         horizontalGroup.addActor(energyLabel)
 
         val splitter0 = Rectangle()
         splitter0.setSize(2f, getHeight())
         horizontalGroup.addActor(splitter0)
 
-        populationLabel = Label("Population: ${CyberHive.POPULATION} (${CyberHive.POPULATION_DYNAMIC})", labelStyle)
+        populationLabel = Label("Population: ${CyberHive.POPULATION} (${CyberHive.POPULATION_DYNAMIC})", skin)
         horizontalGroup.addActor(populationLabel)
 
         val splitter1 = Rectangle()
         splitter1.setSize(2f, getHeight())
         horizontalGroup.addActor(splitter1)
 
-        blackoutLabel = Label("Blackout: ${CyberHive.BLACKOUT}", labelStyle)
+        blackoutLabel = Label("Blackout: ${CyberHive.BLACKOUT}", skin)
         horizontalGroup.addActor(blackoutLabel)
 
         val splitter2 = Rectangle()
