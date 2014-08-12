@@ -11,19 +11,42 @@ import org.cyberhive.gui.TopBar
 import org.cyberhive.gui.BottomBar
 import org.cyberhive.utils.OrthoCamController
 import com.badlogic.gdx.InputMultiplexer
+import com.badlogic.gdx.InputAdapter
+import com.badlogic.gdx.math.Vector2
 
 public class GameScreen(var game: CyberHive) : Screen {
     val camera = OrthographicCamera()
-    var cameraController: OrthoCamController
+    val cameraController: OrthoCamController
     val hexMap = HexMap()
     val stage = Stage()
+    val inputDetector: InputAdapter
     val topBar = TopBar()
+    var isDrag = false
+    var stageCoords = Vector2()
     val bottomBar = BottomBar();
     {
         camera.setToOrtho(false, CyberHive.virtualWidth, CyberHive.virtualHeight)
         cameraController = OrthoCamController(camera)
+        inputDetector = object: InputAdapter() {
+            override fun touchDragged(screenX: Int, screenY: Int, pointer: Int): Boolean {
+                isDrag = true
+                return true
+            }
 
-        val inputMultiplexer = InputMultiplexer(stage, cameraController)
+            override fun touchUp(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
+                if (!isDrag) {
+                    CyberHive.print("x = ${screenX} y = ${screenY}")
+                    stage.screenToStageCoordinates(stageCoords.set(screenX.toFloat(), screenY.toFloat()))
+                    CyberHive.print("offset = ${cameraController.offset.x} ${cameraController.offset.y}")
+
+                } else {
+                    isDrag = false
+                }
+                return true
+            }
+        }
+
+        val inputMultiplexer = InputMultiplexer(stage, cameraController, inputDetector)
         Gdx.input?.setInputProcessor(inputMultiplexer)
 
         topBar.setY(CyberHive.virtualHeight - topBar.getHeight())
