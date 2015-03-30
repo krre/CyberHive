@@ -14,7 +14,7 @@ public class CyberHive() : Game() {
         super.render()
     }
 
-    class object {
+    companion object {
         val virtualWidth = 800f
         val virtualHeight = 480f
 

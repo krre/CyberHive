@@ -1,10 +1,8 @@
 apply plugin: "java"
 apply plugin: 'kotlin'
-sourceCompatibility = 1.6
 [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
 sourceSets.main.java.srcDirs = ["src/"]
 buildscript {
-    ext.kotlin_version = '0.10.770'
     repositories {
         jcenter()
     }
@@ -17,5 +15,6 @@ repositories {
 }
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
 }
 

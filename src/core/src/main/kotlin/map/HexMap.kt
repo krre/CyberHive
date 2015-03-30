@@ -13,7 +13,7 @@ public class HexMap {
     private val map =  TiledMap()
     private val hexture = Texture(Gdx.files?.internal("hexagon.png"))
     val renderer: HexagonalTiledMapRenderer
-    {
+    init {
         val hexWidth = 103
         val hexHeight = 90
         val hexes = TextureRegion.split(hexture, hexWidth, hexHeight)
