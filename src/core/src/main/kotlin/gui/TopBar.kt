@@ -12,7 +12,7 @@ public class TopBar() : Stack() {
     val energyLabel: Label
     val populationLabel: Label
     val blackoutLabel: Label
-    {
+    init {
         CyberHive.topBar = this
         setSize(CyberHive.virtualWidth, 40f)
         val skin = Skin(Gdx.files?.internal("uiskin.json"));

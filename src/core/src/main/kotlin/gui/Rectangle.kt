@@ -10,7 +10,7 @@ open class Rectangle() : Actor() {
     var fillColor = Color.WHITE
     set(value) { renderer.setColor(value) }
     private val renderer = ShapeRenderer();
-    {
+    init {
         setSize(100f, 100f)
     }
 

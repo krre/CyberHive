@@ -24,7 +24,7 @@ public class GameScreen(var game: CyberHive) : Screen {
     var isDrag = false
     var stageCoords = Vector2()
     val bottomBar = BottomBar();
-    {
+    init {
         camera.setToOrtho(false, CyberHive.virtualWidth, CyberHive.virtualHeight)
         cameraController = OrthoCamController(camera)
         inputDetector = object: InputAdapter() {
