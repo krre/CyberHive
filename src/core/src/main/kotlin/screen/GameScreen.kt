@@ -35,7 +35,7 @@ public class GameScreen(var game: CyberHive) : Screen {
 
             override fun touchUp(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
                 if (!isDrag) {
-                    CyberHive.print("x = ${screenX} y = ${screenY}")
+                    CyberHive.print("x = $screenX y = $screenY")
                     stage.screenToStageCoordinates(stageCoords.set(screenX.toFloat(), screenY.toFloat()))
                     CyberHive.print("offset = ${cameraController.offset.x} ${cameraController.offset.y}")
 

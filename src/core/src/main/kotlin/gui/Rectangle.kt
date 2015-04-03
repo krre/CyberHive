@@ -28,4 +28,3 @@ open class Rectangle() : Actor() {
         batch?.begin()
     }
 }
-

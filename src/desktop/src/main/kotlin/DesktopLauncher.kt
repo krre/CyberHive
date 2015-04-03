@@ -6,7 +6,7 @@ import org.cyberhive.CyberHive
 
 public fun main(arg: Array<String>) {
     val config = LwjglApplicationConfiguration()
-    config.width = 800
-    config.height = 480
+    config.width = 1280
+    config.height = 720
     LwjglApplication(CyberHive(), config)
 }

@@ -15,7 +15,4 @@ public class AndroidLauncher() : AndroidApplication() {
         config.useCompass = false
         initialize(CyberHive(), config)
     }
-
-    override fun startActivity(intent: Intent?) {
-    }
 }

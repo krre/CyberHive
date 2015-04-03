@@ -25,7 +25,7 @@ public class BottomBar() : Stack() {
                 CyberHive.energy += 1
                 CyberHive.topBar?.updateEnergy()
             }
-        });
+        })
         addActor(nextButton)
     }
 }

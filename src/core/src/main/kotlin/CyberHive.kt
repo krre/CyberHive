@@ -15,8 +15,8 @@ public class CyberHive() : Game() {
     }
 
     companion object {
-        val virtualWidth = 800f
-        val virtualHeight = 480f
+        val virtualWidth = 1280f
+        val virtualHeight = 720f
 
         var energy = 0
         var energyDynamic = 0
