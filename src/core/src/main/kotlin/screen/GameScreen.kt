@@ -13,20 +13,21 @@ import org.cyberhive.CyberHive
 import org.cyberhive.gui.BottomBar
 import org.cyberhive.gui.TopBar
 import org.cyberhive.map.HexMap
+import org.cyberhive.utils.Constants
 import org.cyberhive.utils.OrthoCamController
 
 public class GameScreen(val game: CyberHive) : ScreenAdapter() {
     val camera = OrthographicCamera()
     val cameraController: OrthoCamController
     val hexMap = HexMap()
-    val stage = Stage(FitViewport(CyberHive.virtualWidth, CyberHive.virtualHeight))
+    val stage = Stage(FitViewport(Constants.virtualWidth, Constants.virtualHeight))
     val inputDetector: InputAdapter
     val topBar = TopBar()
     var isDrag = false
     var stageCoords = Vector2()
     val bottomBar = BottomBar()
     init {
-        camera.setToOrtho(false, CyberHive.virtualWidth, CyberHive.virtualHeight)
+        camera.setToOrtho(false, Constants.virtualWidth, Constants.virtualHeight)
         cameraController = OrthoCamController(camera)
         inputDetector = object: InputAdapter() {
             override fun touchDragged(screenX: Int, screenY: Int, pointer: Int): Boolean {
@@ -50,7 +51,7 @@ public class GameScreen(val game: CyberHive) : ScreenAdapter() {
         val inputMultiplexer = InputMultiplexer(stage, cameraController, inputDetector)
         Gdx.input?.setInputProcessor(inputMultiplexer)
 
-        topBar.setY(CyberHive.virtualHeight - topBar.getHeight())
+        topBar.setY(Constants.virtualHeight - topBar.getHeight())
         stage.addActor(topBar)
 
         bottomBar.setY(0f)

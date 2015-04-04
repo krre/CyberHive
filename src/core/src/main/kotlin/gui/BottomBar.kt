@@ -8,10 +8,11 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import com.badlogic.gdx.scenes.scene2d.InputEvent
+import org.cyberhive.utils.Constants
 
 public class BottomBar() : Stack() {
     init {
-        setSize(CyberHive.virtualWidth, 40f)
+        setSize(Constants.virtualWidth, 40f)
 
         val colorBar = Rectangle()
         colorBar.setSize(getWidth(), getHeight())

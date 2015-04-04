@@ -7,6 +7,7 @@ import org.cyberhive.CyberHive
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup
 import com.badlogic.gdx.scenes.scene2d.ui.Stack
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import org.cyberhive.utils.Constants
 
 public class TopBar() : Stack() {
     val energyLabel: Label
@@ -14,7 +15,7 @@ public class TopBar() : Stack() {
     val blackoutLabel: Label
     init {
         CyberHive.topBar = this
-        setSize(CyberHive.virtualWidth, 40f)
+        setSize(Constants.virtualWidth, 40f)
         val skin = Skin(Gdx.files?.internal("uiskin.json"));
 
         val colorBar = Rectangle()
