@@ -16,7 +16,7 @@ import org.cyberhive.map.HexMap
 import org.cyberhive.utils.Constants
 import org.cyberhive.utils.OrthoCamController
 
-public class GameScreen(val game: CyberHive) : ScreenAdapter() {
+public class GameScreen() : ScreenAdapter() {
     val camera = OrthographicCamera()
     val cameraController: OrthoCamController
     val hexMap = HexMap()

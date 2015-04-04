@@ -1,17 +1,14 @@
 package org.cyberhive
 
 import com.badlogic.gdx.Game
-import org.cyberhive.screen.GameScreen
 import com.badlogic.gdx.Gdx
 import org.cyberhive.gui.TopBar
+import org.cyberhive.screen.GameScreen
+import org.cyberhive.screen.MenuScreen
 
 public class CyberHive() : Game() {
     override fun create() {
-        setScreen(GameScreen(this))
-    }
-
-    override fun render() {
-        super.render()
+        setScreen(GameScreen())
     }
 
     companion object {
@@ -24,7 +21,7 @@ public class CyberHive() : Game() {
         var topBar: TopBar? = null
 
         fun print(message: Any) {
-            Gdx.app?.log("CyberHive", message.toString())
+            Gdx.app.log("CyberHive", message.toString())
         }
     }
 }
