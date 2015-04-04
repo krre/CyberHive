@@ -16,7 +16,7 @@ public class TopBar() : Stack() {
     init {
         CyberHive.topBar = this
         setSize(Constants.virtualWidth, 40f)
-        val skin = Skin(Gdx.files?.internal("uiskin.json"));
+        val skin = Skin(Gdx.files.internal("uiskin.json"));
 
         val colorBar = Rectangle()
         colorBar.setSize(getWidth(), getHeight())

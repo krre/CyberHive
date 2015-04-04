@@ -11,7 +11,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 
 public class HexMap {
     private val map =  TiledMap()
-    private val hexture = Texture(Gdx.files?.internal("hexagon.png"))
+    private val hexture = Texture(Gdx.files.internal("hexagon.png"))
     val renderer: HexagonalTiledMapRenderer
     init {
         val hexWidth = 103
@@ -19,10 +19,10 @@ public class HexMap {
         val hexes = TextureRegion.split(hexture, hexWidth, hexHeight)
         val layers = map.getLayers()
         val tiles = arrayOfNulls<TiledMapTile>(4)
-        tiles[0] = StaticTiledMapTile(TextureRegion(hexes?.elementAt(0)?.elementAt(0)))
-        tiles[1] = StaticTiledMapTile(TextureRegion(hexes?.elementAt(0)?.elementAt(1)))
-        tiles[2] = StaticTiledMapTile(TextureRegion(hexes?.elementAt(1)?.elementAt(0)))
-        tiles[3] = StaticTiledMapTile(TextureRegion(hexes?.elementAt(1)?.elementAt(1)))
+        tiles[0] = StaticTiledMapTile(TextureRegion(hexes.elementAt(0).elementAt(0)))
+        tiles[1] = StaticTiledMapTile(TextureRegion(hexes.elementAt(0).elementAt(1)))
+        tiles[2] = StaticTiledMapTile(TextureRegion(hexes.elementAt(1).elementAt(0)))
+        tiles[3] = StaticTiledMapTile(TextureRegion(hexes.elementAt(1).elementAt(1)))
 
         val mapWidth = 45
         val mapHeight = 30
@@ -35,7 +35,7 @@ public class HexMap {
                 layer.setCell(x, y, cell)
             }
         }
-        layers?.add(layer)
+        layers.add(layer)
         renderer = HexagonalTiledMapRenderer(map)
     }
 

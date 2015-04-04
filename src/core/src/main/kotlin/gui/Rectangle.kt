@@ -14,17 +14,17 @@ open class Rectangle() : Actor() {
         setSize(100f, 100f)
     }
 
-    override fun draw(batch: Batch?, parentAlpha: Float) {
-        batch?.end()
+    override fun draw(batch: Batch, parentAlpha: Float) {
+        batch.end()
 
-        renderer.setProjectionMatrix(batch?.getProjectionMatrix());
-        renderer.setTransformMatrix(batch?.getTransformMatrix());
+        renderer.setProjectionMatrix(batch.getProjectionMatrix());
+        renderer.setTransformMatrix(batch.getTransformMatrix());
         renderer.translate(getX(), getY(), 0f);
 
         renderer.begin(ShapeType.Filled)
         renderer.rect(0f, 0f, getWidth(), getHeight())
         renderer.end()
 
-        batch?.begin()
+        batch.begin()
     }
 }

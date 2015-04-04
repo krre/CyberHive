@@ -19,10 +19,10 @@ public class BottomBar() : Stack() {
         colorBar.fillColor = Color.TEAL
         addActor(colorBar)
 
-        val skin = Skin(Gdx.files?.internal("uiskin.json"));
+        val skin = Skin(Gdx.files.internal("uiskin.json"));
         val nextButton = TextButton("NEXT", skin)
         nextButton.addListener(object: ClickListener() {
-            override fun clicked(event: InputEvent?, x: Float, y: Float) {
+            override fun clicked(event: InputEvent, x: Float, y: Float) {
                 CyberHive.energy += 1
                 CyberHive.topBar?.updateEnergy()
             }

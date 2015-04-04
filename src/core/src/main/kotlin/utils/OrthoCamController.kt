@@ -16,7 +16,7 @@ public class OrthoCamController(val camera: OrthographicCamera) : InputAdapter()
         if (!(last.x == -1f && last.y == -1f && last.z == -1f)) {
             camera.unproject(delta.set(last.x, last.y, 0f))
             delta.sub(curr)
-            camera.position?.add(delta.x, delta.y, 0f)
+            camera.position.add(delta.x, delta.y, 0f)
             offset.set(offset.x + delta.x, offset.y + delta.y, 0f)
         }
         last.set(x.toFloat(), y.toFloat(), 0f)
