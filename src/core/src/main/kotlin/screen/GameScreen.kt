@@ -1,29 +1,30 @@
 package org.cyberhive.screen
 
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.Screen
+import com.badlogic.gdx.InputAdapter
+import com.badlogic.gdx.InputMultiplexer
+import com.badlogic.gdx.ScreenAdapter
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
-import org.cyberhive.CyberHive
-import org.cyberhive.map.HexMap
-import com.badlogic.gdx.scenes.scene2d.Stage
-import org.cyberhive.gui.TopBar
-import org.cyberhive.gui.BottomBar
-import org.cyberhive.utils.OrthoCamController
-import com.badlogic.gdx.InputMultiplexer
-import com.badlogic.gdx.InputAdapter
 import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.scenes.scene2d.Stage
+import com.badlogic.gdx.utils.viewport.FitViewport
+import org.cyberhive.CyberHive
+import org.cyberhive.gui.BottomBar
+import org.cyberhive.gui.TopBar
+import org.cyberhive.map.HexMap
+import org.cyberhive.utils.OrthoCamController
 
-public class GameScreen(var game: CyberHive) : Screen {
+public class GameScreen(val game: CyberHive) : ScreenAdapter() {
     val camera = OrthographicCamera()
     val cameraController: OrthoCamController
     val hexMap = HexMap()
-    val stage = Stage()
+    val stage = Stage(FitViewport(CyberHive.virtualWidth, CyberHive.virtualHeight))
     val inputDetector: InputAdapter
     val topBar = TopBar()
     var isDrag = false
     var stageCoords = Vector2()
-    val bottomBar = BottomBar();
+    val bottomBar = BottomBar()
     init {
         camera.setToOrtho(false, CyberHive.virtualWidth, CyberHive.virtualHeight)
         cameraController = OrthoCamController(camera)
@@ -71,19 +72,7 @@ public class GameScreen(var game: CyberHive) : Screen {
     }
 
     override fun resize(width: Int, height: Int) {
-        stage.getViewport()?.update(width, height, true)
-    }
-
-    override fun show() {
-    }
-
-    override fun hide() {
-    }
-
-    override fun pause() {
-    }
-
-    override fun resume() {
+        stage.getViewport()?.update(width, height, false)
     }
 
     override fun dispose() {
