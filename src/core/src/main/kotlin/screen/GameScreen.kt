@@ -27,6 +27,7 @@ public class GameScreen() : ScreenAdapter() {
     var stageCoords = Vector2()
     val bottomBar = BottomBar()
     init {
+        Gdx.gl.glClearColor(1f, 1f, 1f, 1f)
         camera.setToOrtho(false, Constants.virtualWidth, Constants.virtualHeight)
         cameraController = OrthoCamController(camera)
         inputDetector = object: InputAdapter() {
@@ -49,7 +50,7 @@ public class GameScreen() : ScreenAdapter() {
         }
 
         val inputMultiplexer = InputMultiplexer(stage, cameraController, inputDetector)
-        Gdx.input?.setInputProcessor(inputMultiplexer)
+        Gdx.input.setInputProcessor(inputMultiplexer)
 
         topBar.setY(Constants.virtualHeight - topBar.getHeight())
         stage.addActor(topBar)
@@ -58,10 +59,8 @@ public class GameScreen() : ScreenAdapter() {
         stage.addActor(bottomBar)
     }
 
-
     override fun render(delta: Float) {
-        Gdx.gl?.glClearColor(1f, 1f, 1f, 1f)
-        Gdx.gl?.glClear(GL20.GL_COLOR_BUFFER_BIT)
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
         camera.update()
 
@@ -73,7 +72,7 @@ public class GameScreen() : ScreenAdapter() {
     }
 
     override fun resize(width: Int, height: Int) {
-        stage.getViewport()?.update(width, height, false)
+        stage.getViewport().update(width, height, false)
     }
 
     override fun dispose() {
