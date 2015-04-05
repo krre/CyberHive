@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.Stage
-import com.badlogic.gdx.scenes.scene2d.ui.Button
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup
@@ -15,7 +14,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport
 import org.cyberhive.CyberHive
 import org.cyberhive.utils.Constants
 
-class MenuScreen : ScreenAdapter() {
+class WorldScreen : ScreenAdapter() {
     val camera = OrthographicCamera()
     val stage = Stage(FitViewport(Constants.virtualWidth, Constants.virtualHeight))
     private val verticalGroup = VerticalGroup()
@@ -28,30 +27,22 @@ class MenuScreen : ScreenAdapter() {
         stage.addActor(verticalGroup)
         val skin = Skin(Gdx.files.internal("uiskin.json"))
 
-        val newGameButton = TextButton("New Game", skin)
-        newGameButton.addListener(object: ClickListener() {
+        val newWorldButton = TextButton("New World", skin)
+        newWorldButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(WorldScreen())
+                CyberHive.print("new world")
             }
         })
-        verticalGroup.addActor(newGameButton)
+        verticalGroup.addActor(newWorldButton)
 
 
-        val loadGameButton = TextButton("Load Game", skin)
-        loadGameButton.addListener(object: ClickListener() {
+        val startButton = TextButton("Start Game", skin)
+        startButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
                 CyberHive.instance.setScreen(GameScreen())
             }
         })
-        verticalGroup.addActor(loadGameButton)
-
-        val exitButton = TextButton("Exit", skin)
-        exitButton.addListener(object: ClickListener() {
-            override fun clicked(event: InputEvent, x: Float, y: Float) {
-                Gdx.app.exit()
-            }
-        })
-        verticalGroup.addActor(exitButton)
+        verticalGroup.addActor(startButton)
     }
 
     override fun render(delta: Float) {
