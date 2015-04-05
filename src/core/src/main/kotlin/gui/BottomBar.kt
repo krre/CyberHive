@@ -10,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import com.badlogic.gdx.scenes.scene2d.InputEvent
 import org.cyberhive.utils.Constants
 
-public class BottomBar() : Stack() {
+class BottomBar() : Stack() {
     init {
         setSize(Constants.virtualWidth, 40f)
 

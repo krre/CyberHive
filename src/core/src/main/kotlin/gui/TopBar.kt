@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Stack
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
 import org.cyberhive.utils.Constants
 
-public class TopBar() : Stack() {
+class TopBar() : Stack() {
     val energyLabel: Label
     val populationLabel: Label
     val blackoutLabel: Label

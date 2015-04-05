@@ -9,7 +9,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTile
 import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 
-public class HexMap {
+class HexMap {
     private val map =  TiledMap()
     private val hexture = Texture(Gdx.files.internal("hexagon.png"))
     val renderer: HexagonalTiledMapRenderer

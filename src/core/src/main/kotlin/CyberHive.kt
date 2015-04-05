@@ -8,7 +8,7 @@ import org.cyberhive.screen.GameScreen
 import org.cyberhive.screen.MenuScreen
 import kotlin.properties.Delegates
 
-public class CyberHive() : Game() {
+class CyberHive() : Game() {
     override fun create() {
         instance = this
         setScreen(MenuScreen())

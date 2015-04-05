@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.math.Vector3
 import org.cyberhive.CyberHive
 
-public class OrthoCamController(val camera: OrthographicCamera) : InputAdapter() {
+class OrthoCamController(val camera: OrthographicCamera) : InputAdapter() {
     val curr = Vector3()
     val last = Vector3(-1f, -1f, -1f)
     val delta = Vector3()
