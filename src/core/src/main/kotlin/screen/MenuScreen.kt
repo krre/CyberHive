@@ -32,6 +32,15 @@ class MenuScreen : AbstractScreen() {
         table.add(loadGameButton)
         table.row()
 
+        val settingsButton = TextButton("Settings", skin)
+        settingsButton.addListener(object: ClickListener() {
+            override fun clicked(event: InputEvent, x: Float, y: Float) {
+                CyberHive.instance.setScreen(SettingsScreen())
+            }
+        })
+        table.add(settingsButton)
+        table.row()
+
         val exitButton = TextButton("Exit", skin)
         exitButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
