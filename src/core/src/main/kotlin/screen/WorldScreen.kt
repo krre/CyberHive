@@ -1,16 +1,17 @@
 package org.cyberhive.screen
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent
+import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
-import com.badlogic.gdx.scenes.scene2d.ui.VerticalGroup
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import org.cyberhive.CyberHive
 
 class WorldScreen : AbstractScreen() {
-    private val verticalGroup = VerticalGroup()
     init {
-        verticalGroup.setFillParent(true)
-        stage.addActor(verticalGroup)
+        val table = Table()
+        table.setFillParent(true)
+        table.defaults().width(300f).height(50f).space(10f)
+        stage.addActor(table)
 
         val newWorldButton = TextButton("New World", skin)
         newWorldButton.addListener(object: ClickListener() {
@@ -18,7 +19,8 @@ class WorldScreen : AbstractScreen() {
                 CyberHive.print("new world")
             }
         })
-        verticalGroup.addActor(newWorldButton)
+        table.add(newWorldButton)
+        table.row()
 
         val startButton = TextButton("Start Game", skin)
         startButton.addListener(object: ClickListener() {
@@ -26,6 +28,6 @@ class WorldScreen : AbstractScreen() {
                 CyberHive.instance.setScreen(GameScreen())
             }
         })
-        verticalGroup.addActor(startButton)
+        table.add(startButton)
     }
 }
