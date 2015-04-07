@@ -8,10 +8,18 @@ import org.cyberhive.CyberHive
 
 class WorldScreen : AbstractScreen() {
     init {
-        val table = Table()
-        table.setFillParent(true)
-        table.defaults().width(300f).height(50f).space(10f)
-        stage.addActor(table)
+        val mainTable = Table()
+        mainTable.setFillParent(true)
+        stage.addActor(mainTable)
+        mainTable.debug()
+
+        val settingsTable = Table()
+        var buttonsTable = Table()
+
+        mainTable.add(settingsTable).width(550f)
+        mainTable.add(buttonsTable).width(250f)
+
+        buttonsTable.defaults().width(200f).height(50f).space(10f)
 
         val randomWorldButton = TextButton("Random World", skin)
         randomWorldButton.addListener(object: ClickListener() {
@@ -19,8 +27,8 @@ class WorldScreen : AbstractScreen() {
                 CyberHive.print("random world")
             }
         })
-        table.add(randomWorldButton)
-        table.row()
+        buttonsTable.add(randomWorldButton)
+        buttonsTable.row()
 
         val playButton = TextButton("Play", skin)
         playButton.addListener(object: ClickListener() {
@@ -28,8 +36,8 @@ class WorldScreen : AbstractScreen() {
                 CyberHive.instance.setScreen(GameScreen())
             }
         })
-        table.add(playButton)
-        table.row()
+        buttonsTable.add(playButton)
+        buttonsTable.row()
 
         val backButton = TextButton("Back", skin)
         backButton.addListener(object: ClickListener() {
@@ -37,6 +45,6 @@ class WorldScreen : AbstractScreen() {
                 CyberHive.instance.setScreen(MenuScreen())
             }
         })
-        table.add(backButton)
+        buttonsTable.add(backButton)
     }
 }
