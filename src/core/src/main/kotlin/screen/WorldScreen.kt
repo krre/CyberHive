@@ -13,13 +13,13 @@ class WorldScreen : AbstractScreen() {
         table.defaults().width(300f).height(50f).space(10f)
         stage.addActor(table)
 
-        val newWorldButton = TextButton("New World", skin)
-        newWorldButton.addListener(object: ClickListener() {
+        val randomWorldButton = TextButton("Random World", skin)
+        randomWorldButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.print("new world")
+                CyberHive.print("random world")
             }
         })
-        table.add(newWorldButton)
+        table.add(randomWorldButton)
         table.row()
 
         val playButton = TextButton("Play", skin)
