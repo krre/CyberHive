@@ -22,13 +22,13 @@ class WorldScreen : AbstractScreen() {
         table.add(newWorldButton)
         table.row()
 
-        val startButton = TextButton("Start Game", skin)
-        startButton.addListener(object: ClickListener() {
+        val playButton = TextButton("Play", skin)
+        playButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
                 CyberHive.instance.setScreen(GameScreen())
             }
         })
-        table.add(startButton)
+        table.add(playButton)
         table.row()
 
         val backButton = TextButton("Back", skin)
