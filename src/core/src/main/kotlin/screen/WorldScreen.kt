@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import org.cyberhive.CyberHive
+import java.util.Random
 
 class WorldScreen : AbstractScreen() {
     init {
@@ -49,7 +50,9 @@ class WorldScreen : AbstractScreen() {
         val randomWorldButton = TextButton("Random World", skin)
         randomWorldButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.print("random world")
+                sizeSelectBox.setSelectedIndex(randInt(0, 2))
+                climateSelectBox.setSelectedIndex(randInt(0, 2))
+                geoSelectBox.setSelectedIndex(randInt(0, 2))
             }
         })
         buttonsTable.add(randomWorldButton)
@@ -71,5 +74,10 @@ class WorldScreen : AbstractScreen() {
             }
         })
         buttonsTable.add(backButton)
+    }
+
+    fun randInt(min: Int, max: Int): Int {
+        val rand = Random()
+        return rand.nextInt((max - min) + 1) + min
     }
 }
