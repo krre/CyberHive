@@ -22,27 +22,29 @@ class WorldScreen : AbstractScreen() {
         mainTable.add(settingsTable).width(550f)
         settingsTable.defaults().height(50f).space(10f)
 
-        val sizeLabel = Label("Size:", skin)
-        settingsTable.add(sizeLabel)
+        settingsTable.add(Label("Size:", skin))
         val sizeSelectBox = SelectBox<String>(skin)
         sizeSelectBox.setItems("Small", "Normal", "Large")
         settingsTable.add(sizeSelectBox)
         settingsTable.row()
 
-        val climateLabel = Label("Climate:", skin)
-        settingsTable.add(climateLabel)
+        settingsTable.add(Label("Climate:", skin))
         val climateSelectBox = SelectBox<String>(skin)
         climateSelectBox.setItems("Cold", "Normal", "Hot")
         settingsTable.add(climateSelectBox)
         settingsTable.row()
 
-        val geoLabel = Label("Geo:", skin)
-        settingsTable.add(geoLabel)
+        settingsTable.add(Label("Geo:", skin))
         val geoSelectBox = SelectBox<String>(skin)
         geoSelectBox.setItems("Island", "Coast", "Сontinent")
         settingsTable.add(geoSelectBox)
         settingsTable.row()
 
+        settingsTable.add(Label("Landscape:", skin))
+        val landscapeSelectBox = SelectBox<String>(skin)
+        landscapeSelectBox.setItems("Desert", "Mountains", "Jungle", "River")
+        settingsTable.add(landscapeSelectBox)
+        settingsTable.row()
 
         mainTable.add(buttonsTable).width(250f)
         buttonsTable.defaults().width(200f).height(50f).space(10f)
@@ -53,6 +55,7 @@ class WorldScreen : AbstractScreen() {
                 sizeSelectBox.setSelectedIndex(randInt(0, 2))
                 climateSelectBox.setSelectedIndex(randInt(0, 2))
                 geoSelectBox.setSelectedIndex(randInt(0, 2))
+                landscapeSelectBox.setSelectedIndex(randInt(0, 3))
             }
         })
         buttonsTable.add(randomWorldButton)
