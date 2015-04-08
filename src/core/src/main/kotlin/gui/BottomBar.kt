@@ -1,13 +1,13 @@
 package org.cyberhive.gui
 
-import org.cyberhive.CyberHive
-import com.badlogic.gdx.scenes.scene2d.ui.Stack
-import com.badlogic.gdx.graphics.Color
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.scenes.scene2d.ui.Skin
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.scenes.scene2d.InputEvent
+import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import com.badlogic.gdx.scenes.scene2d.ui.Stack
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
+import org.cyberhive.storage.Storage
 import org.cyberhive.utils.Constants
 
 class BottomBar() : Stack() {
@@ -23,8 +23,8 @@ class BottomBar() : Stack() {
         val nextButton = TextButton("NEXT", skin)
         nextButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.energy += 1
-                CyberHive.topBar?.updateEnergy()
+                Storage.energy += 1
+                Storage.topBar?.updateEnergy()
             }
         })
         addActor(nextButton)

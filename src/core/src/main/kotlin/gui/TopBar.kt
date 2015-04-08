@@ -1,12 +1,12 @@
 package org.cyberhive.gui
 
-import com.badlogic.gdx.scenes.scene2d.ui.Label
-import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.Gdx
-import org.cyberhive.CyberHive
+import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup
-import com.badlogic.gdx.scenes.scene2d.ui.Stack
+import com.badlogic.gdx.scenes.scene2d.ui.Label
 import com.badlogic.gdx.scenes.scene2d.ui.Skin
+import com.badlogic.gdx.scenes.scene2d.ui.Stack
+import org.cyberhive.storage.Storage
 import org.cyberhive.utils.Constants
 
 class TopBar() : Stack() {
@@ -14,7 +14,7 @@ class TopBar() : Stack() {
     val populationLabel: Label
     val blackoutLabel: Label
     init {
-        CyberHive.topBar = this
+        Storage.topBar = this
         setSize(Constants.virtualWidth, 40f)
         val skin = Skin(Gdx.files.internal("uiskin.json"));
 
@@ -56,15 +56,15 @@ class TopBar() : Stack() {
     }
 
     fun updateEnergy() {
-        energyLabel.setText("Energy: ${CyberHive.energy} (${CyberHive.energyDynamic})")
+        energyLabel.setText("Energy: ${Storage.energy} (${Storage.energyDynamic})")
     }
 
     fun updatePopulation() {
-        populationLabel.setText("Population: ${CyberHive.population} (${CyberHive.populationDynamic})")
+        populationLabel.setText("Population: ${Storage.population} (${Storage.populationDynamic})")
     }
 
     fun updateBlackout() {
-        blackoutLabel.setText("Blackout: ${CyberHive.blackout}")
+        blackoutLabel.setText("Blackout: ${Storage.blackout}")
     }
 }
 
