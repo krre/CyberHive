@@ -5,8 +5,8 @@ import org.cyberhive.screen.*
 import org.cyberhive.utils.Constants
 
 object Debug {
-    val isDebug = true
-    val startScreen = "Game"
+    val isDebug = false
+    val startScreen = "World"
 
     fun getStartScreen() : Screen {
         return when (startScreen) {
