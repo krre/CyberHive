@@ -18,7 +18,6 @@ class HexMap {
     init {
         val hexWidth = 103
         val hexHeight = 90
-        CyberHive.print("width $hexWidth height $hexHeight")
         val hexes = TextureRegion.split(hexture, hexWidth, hexHeight)
         val layers = map.getLayers()
         val tiles = arrayOfNulls<TiledMapTile>(4)
