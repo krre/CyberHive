@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import org.cyberhive.CyberHive
+import org.cyberhive.utils.Constants
 
 class GameMenuScreen : AbstractScreen() {
     init {
@@ -25,7 +26,7 @@ class GameMenuScreen : AbstractScreen() {
         val loadGameButton = TextButton("Load Game", skin)
         loadGameButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(GameScreen())
+                CyberHive.instance.setScreen(FileScreen(Constants.load))
             }
         })
         table.add(loadGameButton)
@@ -34,7 +35,7 @@ class GameMenuScreen : AbstractScreen() {
         val saveGameButton = TextButton("Save Game", skin)
         saveGameButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(GameScreen())
+                CyberHive.instance.setScreen(FileScreen(Constants.save))
             }
         })
         table.add(saveGameButton)
