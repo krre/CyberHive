@@ -3,7 +3,7 @@ package org.cyberhive
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.Gdx
 import org.cyberhive.debug.Debug
-import org.cyberhive.screen.MenuScreen
+import org.cyberhive.screen.MainMenuScreen
 import org.cyberhive.storage.Storage
 import kotlin.properties.Delegates
 
@@ -13,7 +13,7 @@ class CyberHive() : Game() {
         if (Debug.isDebug) {
             setScreen(Debug.getStartScreen())
         } else {
-            setScreen(MenuScreen())
+            setScreen(MainMenuScreen())
         }
     }
 

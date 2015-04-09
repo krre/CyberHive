@@ -1,9 +1,7 @@
 package org.cyberhive.debug
 
 import com.badlogic.gdx.Screen
-import org.cyberhive.screen.GameScreen
-import org.cyberhive.screen.MenuScreen
-import org.cyberhive.screen.WorldScreen
+import org.cyberhive.screen.*
 
 object Debug {
     val isDebug = true
@@ -11,10 +9,12 @@ object Debug {
 
     fun getStartScreen() : Screen {
         return when (startScreen) {
-            "Menu" -> MenuScreen()
+            "MainMenu" -> MainMenuScreen()
+            "GameMenu" -> GameMenuScreen()
             "World" -> WorldScreen()
             "Game" -> GameScreen()
-            else -> MenuScreen()
+            "Settings" -> SettingsScreen()
+            else -> MainMenuScreen()
         }
     }
 }

@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.ui.*
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import org.cyberhive.CyberHive
+import org.cyberhive.screen.GameMenuScreen
 import org.cyberhive.storage.Storage
 import org.cyberhive.utils.Constants
 
@@ -71,7 +72,7 @@ class TopBar() : Stack() {
         val menuButton = TextButton("Menu", skin)
         menuButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.print("menu")
+                CyberHive.instance.setScreen(GameMenuScreen())
             }
         })
         table.add(menuButton).width(60f)
