@@ -9,6 +9,7 @@ import org.cyberhive.CyberHive
 import org.cyberhive.gui.BottomBar
 import org.cyberhive.gui.TopBar
 import org.cyberhive.map.HexMap
+import org.cyberhive.storage.Storage
 import org.cyberhive.utils.Constants
 import org.cyberhive.utils.OrthoCamController
 
@@ -20,6 +21,7 @@ class GameScreen() : AbstractScreen() {
     var isDrag = false
     var stageCoords = Vector2()
     val bottomBar = BottomBar()
+    val prefs = Gdx.app.getPreferences("Cyberhive")
     init {
         cameraController = OrthoCamController(camera)
         inputDetector = object: InputAdapter() {
@@ -49,6 +51,10 @@ class GameScreen() : AbstractScreen() {
 
         bottomBar.setY(0f)
         stage.addActor(bottomBar)
+
+        camera.position.x = prefs.getFloat("cameraX", Constants.virtualWidth / 2f)
+        camera.position.y = prefs.getFloat("cameraY", Constants.virtualHeight / 2f)
+        camera.zoom = prefs.getFloat("cameraZoom", 1.0f)
     }
 
     override fun render(delta: Float) {
@@ -65,5 +71,12 @@ class GameScreen() : AbstractScreen() {
     override fun dispose() {
         super.dispose()
         hexMap.dispose()
+    }
+
+    override fun hide() {
+        prefs.putFloat("cameraX", camera.position.x)
+        prefs.putFloat("cameraY", camera.position.y)
+        prefs.putFloat("cameraZoom", camera.zoom)
+        prefs.flush()
     }
 }
