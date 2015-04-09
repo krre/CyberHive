@@ -42,7 +42,7 @@ class WorldScreen : AbstractScreen() {
 
         settingsTable.add(Label("Landscape:", skin))
         val landscapeSelectBox = SelectBox<String>(skin)
-        landscapeSelectBox.setItems("Desert", "Mountains", "Jungle", "River")
+        landscapeSelectBox.setItems("Desert", "Mountains", "Forest", "River")
         settingsTable.add(landscapeSelectBox)
         settingsTable.row()
 
