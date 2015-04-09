@@ -18,7 +18,7 @@ class MainMenuScreen : AbstractScreen() {
         val newGameButton = TextButton("New Game", skin)
         newGameButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(WorldScreen())
+                CyberHive.setScreen(WorldScreen())
             }
         })
         table.add(newGameButton)
@@ -29,7 +29,7 @@ class MainMenuScreen : AbstractScreen() {
             loadGameButton.addListener(object : ClickListener() {
                 override fun clicked(event: InputEvent, x: Float, y: Float) {
                     Storage.loadStorage()
-                    CyberHive.instance.setScreen(GameScreen())
+                    CyberHive.setScreen(GameScreen())
                 }
             })
             table.add(loadGameButton)
@@ -39,7 +39,7 @@ class MainMenuScreen : AbstractScreen() {
         val settingsButton = TextButton("Settings", skin)
         settingsButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(SettingsScreen())
+                CyberHive.setScreen(SettingsScreen())
             }
         })
         table.add(settingsButton)

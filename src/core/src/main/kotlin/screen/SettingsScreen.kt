@@ -25,7 +25,7 @@ class SettingsScreen : AbstractScreen() {
         val backButton = TextButton("Back", skin)
         backButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(MainMenuScreen())
+                CyberHive.setScreen(MainMenuScreen())
             }
         })
         table.add(backButton)

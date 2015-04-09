@@ -17,7 +17,7 @@ class GameMenuScreen : AbstractScreen() {
         val continueButton = TextButton("Continue", skin)
         continueButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(GameScreen())
+                CyberHive.setScreen(GameScreen())
             }
         })
         table.add(continueButton)
@@ -26,7 +26,7 @@ class GameMenuScreen : AbstractScreen() {
         val loadGameButton = TextButton("Load Game", skin)
         loadGameButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(FileScreen(Constants.load))
+                CyberHive.setScreen(FileScreen(Constants.load))
             }
         })
         table.add(loadGameButton)
@@ -35,7 +35,7 @@ class GameMenuScreen : AbstractScreen() {
         val saveGameButton = TextButton("Save Game", skin)
         saveGameButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(FileScreen(Constants.save))
+                CyberHive.setScreen(FileScreen(Constants.save))
             }
         })
         table.add(saveGameButton)
@@ -44,7 +44,7 @@ class GameMenuScreen : AbstractScreen() {
         val settingsButton = TextButton("Settings", skin)
         settingsButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(SettingsScreen())
+                CyberHive.setScreen(SettingsScreen())
             }
         })
         table.add(settingsButton)
@@ -53,7 +53,7 @@ class GameMenuScreen : AbstractScreen() {
         val mainMenuButton = TextButton("Main Menu", skin)
         mainMenuButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(MainMenuScreen())
+                CyberHive.setScreen(MainMenuScreen())
             }
         })
         table.add(mainMenuButton)

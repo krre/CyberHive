@@ -18,7 +18,7 @@ class FileScreen(val operation: Int) : AbstractScreen() {
             val loadButton = TextButton("Load", skin)
             loadButton.addListener(object : ClickListener() {
                 override fun clicked(event: InputEvent, x: Float, y: Float) {
-                    CyberHive.instance.setScreen(GameScreen())
+                    CyberHive.setScreen(GameScreen())
                 }
             })
             table.add(loadButton)
@@ -27,7 +27,7 @@ class FileScreen(val operation: Int) : AbstractScreen() {
             val saveButton = TextButton("Save", skin)
             saveButton.addListener(object : ClickListener() {
                 override fun clicked(event: InputEvent, x: Float, y: Float) {
-                    CyberHive.instance.setScreen(GameScreen())
+                    CyberHive.setScreen(GameScreen())
                 }
             })
             table.add(saveButton)

@@ -73,7 +73,7 @@ class TopBar(val camera: OrthographicCamera) : Stack() {
         val menuButton = TextButton("Menu", skin)
         menuButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(GameMenuScreen())
+                CyberHive.setScreen(GameMenuScreen())
             }
         })
         table.add(menuButton).width(60f)

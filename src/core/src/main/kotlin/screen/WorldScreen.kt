@@ -73,7 +73,7 @@ class WorldScreen : AbstractScreen() {
         val backButton = TextButton("Back", skin)
         backButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.instance.setScreen(MainMenuScreen())
+                CyberHive.setScreen(MainMenuScreen())
             }
         })
         buttonsTable.add(backButton)
@@ -106,6 +106,6 @@ class WorldScreen : AbstractScreen() {
         Storage.cameraY = Constants.virtualHeight / 2f
         Storage.cameraZoom = 1.0f
 
-        CyberHive.instance.setScreen(GameScreen())
+        CyberHive.setScreen(GameScreen())
     }
 }
