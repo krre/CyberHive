@@ -8,6 +8,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.maps.tiled.TiledMapTile
 import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
+import org.cyberhive.CyberHive
+import org.cyberhive.storage.Storage
 
 class HexMap {
     private val map =  TiledMap()
@@ -16,6 +18,7 @@ class HexMap {
     init {
         val hexWidth = 103
         val hexHeight = 90
+        CyberHive.print("width $hexWidth height $hexHeight")
         val hexes = TextureRegion.split(hexture, hexWidth, hexHeight)
         val layers = map.getLayers()
         val tiles = arrayOfNulls<TiledMapTile>(4)
@@ -24,8 +27,8 @@ class HexMap {
         tiles[2] = StaticTiledMapTile(TextureRegion(hexes.elementAt(1).elementAt(0)))
         tiles[3] = StaticTiledMapTile(TextureRegion(hexes.elementAt(1).elementAt(1)))
 
-        val mapWidth = 45
-        val mapHeight = 30
+        val mapWidth = Storage.hardwareArray!!.count()
+        val mapHeight = Storage.hardwareArray!!.count()
         val layer = TiledMapTileLayer(mapWidth, mapHeight, hexWidth, hexHeight)
         for (y in 0..mapHeight - 1) {
             for (x in 0..mapWidth - 1) {
