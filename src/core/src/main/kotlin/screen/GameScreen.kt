@@ -16,7 +16,7 @@ class GameScreen() : AbstractScreen() {
     val cameraController: OrthoCamController
     val hexMap = HexMap()
     val inputDetector: InputAdapter
-    val topBar = TopBar()
+    val topBar = TopBar(camera)
     var isDrag = false
     var stageCoords = Vector2()
     val bottomBar = BottomBar()

@@ -1,6 +1,7 @@
 package org.cyberhive.gui
 
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.OrthographicCamera
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.scenes.scene2d.InputEvent
 import com.badlogic.gdx.scenes.scene2d.ui.*
@@ -10,7 +11,7 @@ import org.cyberhive.screen.GameMenuScreen
 import org.cyberhive.storage.Storage
 import org.cyberhive.utils.Constants
 
-class TopBar() : Stack() {
+class TopBar(val camera: OrthographicCamera) : Stack() {
     val energyLabel: Label
     val populationLabel: Label
     val blackoutLabel: Label
@@ -56,7 +57,7 @@ class TopBar() : Stack() {
         val plusButton = TextButton("+", skin)
         plusButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.print("+")
+                camera.zoom = Math.max(0.5f, camera.zoom - 0.5f)
             }
         })
         table.add(plusButton).width(40f)
@@ -64,7 +65,7 @@ class TopBar() : Stack() {
         val minusButton = TextButton("-", skin)
         minusButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.print("-")
+                camera.zoom = Math.min(2.5f, camera.zoom + 0.5f)
             }
         })
         table.add(minusButton).width(40f)
