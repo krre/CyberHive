@@ -7,7 +7,7 @@ import org.cyberhive.screen.WorldScreen
 
 object Debug {
     val isDebug = true
-    val startScreen = "World"
+    val startScreen = "Game"
 
     fun getStartScreen() : Screen {
         return when (startScreen) {
