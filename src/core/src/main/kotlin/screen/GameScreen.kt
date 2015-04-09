@@ -5,6 +5,7 @@ import com.badlogic.gdx.InputAdapter
 import com.badlogic.gdx.InputMultiplexer
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.utils.Json
 import org.cyberhive.CyberHive
 import org.cyberhive.gui.BottomBar
 import org.cyberhive.gui.TopBar
@@ -79,6 +80,10 @@ class GameScreen() : AbstractScreen() {
         Storage.prefs.putFloat("cameraY", camera.position.y)
         Storage.cameraZoom = camera.zoom
         Storage.prefs.putFloat("cameraZoom", camera.zoom)
+
+        val json = Json()
+        Storage.prefs.putString("hadrwareArray", json.toJson(Storage.hardwareArray))
+
         Storage.prefs.flush()
     }
 }
