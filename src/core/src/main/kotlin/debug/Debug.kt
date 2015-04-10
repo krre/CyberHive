@@ -3,6 +3,7 @@ package org.cyberhive.debug
 import com.badlogic.gdx.Screen
 import org.cyberhive.screen.*
 import org.cyberhive.utils.Constants
+import org.cyberhive.utils.File
 
 object Debug {
     val isDebug = false
@@ -15,8 +16,8 @@ object Debug {
             "World" -> WorldScreen()
             "Game" -> GameScreen()
             "Settings" -> SettingsScreen()
-            "FileLoad" -> FileScreen(Constants.load)
-            "FileSave" -> FileScreen(Constants.save)
+            "FileLoad" -> FileScreen(File.LOAD)
+            "FileSave" -> FileScreen(File.SAVE)
             else -> MainMenuScreen()
         }
     }
