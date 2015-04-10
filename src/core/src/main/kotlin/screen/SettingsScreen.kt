@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import org.cyberhive.CyberHive
+import org.cyberhive.printc
 
 class SettingsScreen : AbstractScreen() {
     init {
@@ -16,7 +17,7 @@ class SettingsScreen : AbstractScreen() {
         val languageButton = TextButton("Language", skin)
         languageButton.addListener(object: ClickListener() {
             override fun clicked(event: InputEvent, x: Float, y: Float) {
-                CyberHive.print("language")
+                printc("language")
             }
         })
         table.add(languageButton)

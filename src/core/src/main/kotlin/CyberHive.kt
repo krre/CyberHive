@@ -21,12 +21,12 @@ class CyberHive() : Game() {
     companion object {
         var instance: CyberHive by Delegates.notNull()
 
-        fun print(message: Any) {
-            Gdx.app.log("CyberHive", message.toString())
-        }
-
         fun setScreen(screen: Screen) {
             instance.setScreen(screen)
         }
     }
+}
+
+fun printc(message: Any) {
+    Gdx.app.log("CyberHive", message.toString())
 }

@@ -10,6 +10,7 @@ import org.cyberhive.CyberHive
 import org.cyberhive.gui.BottomBar
 import org.cyberhive.gui.TopBar
 import org.cyberhive.map.HexMap
+import org.cyberhive.printc
 import org.cyberhive.storage.Storage
 import org.cyberhive.utils.Constants
 import org.cyberhive.utils.OrthoCamController
@@ -32,9 +33,9 @@ class GameScreen() : AbstractScreen() {
 
             override fun touchUp(screenX: Int, screenY: Int, pointer: Int, button: Int): Boolean {
                 if (!isDrag) {
-                    CyberHive.print("x = $screenX y = $screenY")
+                    printc("x = $screenX y = $screenY")
                     stage.screenToStageCoordinates(stageCoords.set(screenX.toFloat(), screenY.toFloat()))
-                    CyberHive.print("offset = ${cameraController.offset.x} ${cameraController.offset.y}")
+                    printc("offset = ${cameraController.offset.x} ${cameraController.offset.y}")
 
                 } else {
                     isDrag = false
