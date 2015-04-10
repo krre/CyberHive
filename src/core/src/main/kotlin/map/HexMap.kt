@@ -9,7 +9,9 @@ import com.badlogic.gdx.maps.tiled.TiledMapTile
 import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import org.cyberhive.CyberHive
+import org.cyberhive.printc
 import org.cyberhive.storage.Storage
+import org.cyberhive.utils.Cell
 
 class HexMap {
     private val map =  TiledMap()
@@ -39,6 +41,8 @@ class HexMap {
         }
         layers.add(layer)
         renderer = HexagonalTiledMapRenderer(map)
+
+        printc(Cell.FIELD)
     }
 
     fun dispose() {
