@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener
 import org.cyberhive.CyberHive
+import org.cyberhive.logic.World
 import org.cyberhive.storage.Storage
 import org.cyberhive.utils.Constants
 import java.util.Random
@@ -93,9 +94,10 @@ class WorldScreen : AbstractScreen() {
 
     fun createWorld() {
         val dimension = when(sizeSelectBox.getSelectedIndex()) {
-            0 -> 10 // small
-            1 -> 20 // normal
-            else -> 30 // large
+            World.Size.SMALL.ordinal() -> 10
+            World.Size.NORMAL.ordinal() -> 20
+            World.Size.LARGE.ordinal() -> 20
+            else -> 0
         }
 
         Storage.hardwareArray = Array(dimension, { IntArray(dimension) })

@@ -1,17 +1,16 @@
 package org.cyberhive.map
 
-import com.badlogic.gdx.maps.tiled.TiledMap
-import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.maps.tiled.TiledMapTile
-import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
-import org.cyberhive.CyberHive
+import com.badlogic.gdx.maps.tiled.renderers.HexagonalTiledMapRenderer
+import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile
+import org.cyberhive.logic.World
 import org.cyberhive.printc
 import org.cyberhive.storage.Storage
-import org.cyberhive.utils.Cell
 
 class HexMap {
     private val map =  TiledMap()
@@ -42,7 +41,7 @@ class HexMap {
         layers.add(layer)
         renderer = HexagonalTiledMapRenderer(map)
 
-        printc(Cell.FIELD)
+        printc(World.Cell.FIELD.ordinal())
     }
 
     fun dispose() {
