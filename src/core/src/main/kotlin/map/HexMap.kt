@@ -22,26 +22,26 @@ class HexMap {
         val hexes = TextureRegion.split(hexture, hexWidth, hexHeight)
         val layers = map.getLayers()
         val tiles = arrayOfNulls<TiledMapTile>(4)
-        tiles[0] = StaticTiledMapTile(TextureRegion(hexes.elementAt(0).elementAt(0)))
-        tiles[1] = StaticTiledMapTile(TextureRegion(hexes.elementAt(0).elementAt(1)))
-        tiles[2] = StaticTiledMapTile(TextureRegion(hexes.elementAt(1).elementAt(0)))
-        tiles[3] = StaticTiledMapTile(TextureRegion(hexes.elementAt(1).elementAt(1)))
+        tiles[0] = StaticTiledMapTile(TextureRegion(hexes[0][0]))
+        tiles[1] = StaticTiledMapTile(TextureRegion(hexes[0][1]))
+        tiles[2] = StaticTiledMapTile(TextureRegion(hexes[1][0]))
+        tiles[3] = StaticTiledMapTile(TextureRegion(hexes[1][1]))
 
-        val mapWidth = Storage.hardwareArray!!.count()
-        val mapHeight = Storage.hardwareArray!!.count()
+        val mapWidth = Storage.hardwareArray!!.size
+        val mapHeight = Storage.hardwareArray!!.size
         val layer = TiledMapTileLayer(mapWidth, mapHeight, hexWidth, hexHeight)
         for (y in 0..mapHeight - 1) {
             for (x in 0..mapWidth - 1) {
                 val cell = TiledMapTileLayer.Cell()
                 val id = (Math.random() * 4).toInt()
-                cell.setTile(tiles[id])
+                cell.tile = tiles[id]
                 layer.setCell(x, y, cell)
             }
         }
         layers.add(layer)
         renderer = HexagonalTiledMapRenderer(map)
 
-        printc(World.Cell.FIELD.ordinal())
+        printc(World.Cell.FIELD.ordinal)
     }
 
     fun dispose() {
