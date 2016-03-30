@@ -94,9 +94,9 @@ class WorldScreen : AbstractScreen() {
 
     fun createWorld() {
         val dimension = when(sizeSelectBox.getSelectedIndex()) {
-            World.Size.SMALL.ordinal() -> 10
-            World.Size.NORMAL.ordinal() -> 20
-            World.Size.LARGE.ordinal() -> 20
+            World.Size.SMALL.ordinal -> 10
+            World.Size.NORMAL.ordinal -> 20
+            World.Size.LARGE.ordinal -> 20
             else -> 0
         }
 
