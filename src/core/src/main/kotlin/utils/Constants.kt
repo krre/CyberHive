@@ -6,7 +6,7 @@ object Constants {
 }
 
 enum class File {
-    SAVE
+    SAVE,
     LOAD
 }
 
