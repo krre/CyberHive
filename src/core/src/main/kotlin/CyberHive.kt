@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Screen
 import org.cyberhive.debug.Debug
 import org.cyberhive.screen.MainMenuScreen
-import org.cyberhive.storage.Storage
 import kotlin.properties.Delegates
 
 class CyberHive() : Game() {
