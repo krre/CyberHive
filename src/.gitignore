@@ -6,6 +6,7 @@
 hs_err_pid*
 
 ## Android Studio and Intellij and Android in general
+lib/
 android/libs/
 android/gen/
 .idea/
